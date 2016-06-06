@@ -15,19 +15,19 @@ HTML_WRAP = '''\
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DB Forum</title>
+    <title>Database Forum Application</title>
     <style>
       h1, form { text-align: center; }
       textarea { width: 400px; height: 100px; }
       div.post { border: 1px solid #999;
                  padding: 10px 10px;
-		 margin: 10px 20%%; }
+     margin: 10px 20%%; }
       hr.postbound { width: 50%%; }
       em.date { color: #999 }
     </style>
   </head>
   <body>
-    <h1>DB Forum</h1>
+    <h1>Database Forum Application</h1>
     <form method=post action="/post">
       <div><textarea id="content" name="content"></textarea></div>
       <div><button id="go" type="submit">Post message</button></div>
@@ -46,7 +46,6 @@ POST = '''\
 ## Request handler for main page
 def View(env, resp):
     '''View is the 'main page' of the forum.
-
     It displays the submission form and the previously posted messages.
     '''
     # get posts from database
@@ -59,13 +58,15 @@ def View(env, resp):
 ## Request handler for posting - inserts to database
 def Post(env, resp):
     '''Post handles a submission of the forum's form.
-  
     The message the user posted is saved in the database, then it sends a 302
     Redirect back to the main page so the user can see their new post.
     '''
     # Get post content
     input = env['wsgi.input']
-    length = int(env.get('CONTENT_LENGTH', 0))
+    cont_length = env.get('CONTENT_LENGTH', 0)
+    length = 0
+    if len(cont_length) > 0:
+        length = int(cont_length)
     # If length is zero, post is empty - don't save it.
     if length > 0:
         postdata = input.read(length)
@@ -79,13 +80,13 @@ def Post(env, resp):
     # 302 redirect back to the main page
     headers = [('Location', '/'),
                ('Content-type', 'text/plain')]
-    resp('302 REDIRECT', headers) 
+    resp('302 REDIRECT', headers)
     return ['Redirecting']
 
 ## Dispatch table - maps URL prefixes to request handlers
 DISPATCH = {'': View,
             'post': Post,
-	    }
+      }
 
 ## Dispatcher forwards requests according to the DISPATCH table.
 def Dispatcher(env, resp):
@@ -96,7 +97,7 @@ def Dispatcher(env, resp):
     else:
         status = '404 Not Found'
         headers = [('Content-type', 'text/plain')]
-        resp(status, headers)    
+        resp(status, headers)
         return ['Not Found: ' + page]
 
 
@@ -104,4 +105,3 @@ def Dispatcher(env, resp):
 httpd = make_server('', 8000, Dispatcher)
 print "Serving HTTP on port 8000..."
 httpd.serve_forever()
-
