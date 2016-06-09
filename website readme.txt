@@ -115,4 +115,4 @@ STEP18. Open a new terminal and type the following commands.
 
 
 
-congrats your done with. you know have a fullstack website on a stick!!! go see your website at localhost:8000
+congrats your done with the install. You now have a fullstack website on a stick!!! go see your website at localhost:8000
