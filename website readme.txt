@@ -81,13 +81,16 @@ Step 11. Create the database and owner
 
 #back at the ubuntu command prompt: Ubuntu@Ubuntu:-$
 
+
+
 Step 12.  switch to the user vagrant
 
 Ubuntu@Ubuntu:-$ Sudu su – vagrant
 
+
 Step 13. login to the database called forum
 
-	vagrant:Ubuntu@Ubuntu:-$ Psql forum
+	vagrant:Ubuntu@Ubuntu:-$ psql forum
 
 	#you are now in the forum database Forum=>
 
