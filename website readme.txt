@@ -45,6 +45,7 @@ Command prompt: Ubuntu@Ubuntu:-$
 
 	Ubuntu@Ubuntu:-$ sudo apt-get install git  ( 5 minutes )
 
+
 STEP 6. Make a directory for your files
 
 	Ubuntu@Ubuntu:-$ mkdir vagrant
@@ -73,7 +74,7 @@ Step 11. Create the database and owner
 
 	Postgres=# CREATE USER vagrant WITH PASSWORD ‘vagrant';
 
-	Postgres=# CREATE DATABASE forum OWNER vagrant
+	Postgres=# CREATE DATABASE forum OWNER vagrant;
 
 	Postgres=# \q (to quit out of the database)
 
