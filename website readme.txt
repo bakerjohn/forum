@@ -40,8 +40,9 @@ STEP 5. Go to the linux command line utility- you may have to search by typing i
 
 Command prompt: Ubuntu@Ubuntu:-$
 
-	Ubuntu@Ubuntu:-$ sudo  apt-get install postgresql python-psycopg2  
-	Ubuntu@Ubuntu:-$ sudo apt-get-y install python pip
+	Ubuntu@Ubuntu:-$ sudo  apt-get install postgresql python-psycopg2 
+	Ubuntu@Ubuntu:-$ sudo apt-get update 
+
 	Ubuntu@Ubuntu:-$ sudo apt-get install git  ( 5 minutes )
 
 STEP 6. Make a directory for your files
@@ -54,7 +55,7 @@ STEP 7. Clone the respository from github
 
 
 STEP 8. Create a new user
-	Ubuntu@Ubuntu:-$ Sudo createuser vagrant
+	Ubuntu@Ubuntu:-$ sudo adduser vagrant
 
 	Create the password vagrant
 	-then just click enter through all the other stuff
@@ -108,11 +109,11 @@ STEP 16. \d
 STEP 17. type exit to close the terminal.
 
 STEP18. Open a new terminal and type the following commands.
-	Ubuntu@Ubuntu:-$ cd hat
+	Ubuntu@Ubuntu:-$ cd vagrant
 	Ubuntu@Ubuntu:-$ cd forum
 	Ubuntu@Ubuntu:-$ python forum.py
 
 
 
 
-congrats your done with the install. You now have a fullstack website on a stick!!! go see your website at localhost:8000
+congrats your done with. you know have a fullstack website on a stick!!! go see your website at localhost:8000
