@@ -72,7 +72,7 @@ STEP 10. Login to the database
 
 Step 11. Create the database and owner
 
-	Postgres=# CREATE USER vagrant WITH PASSWORD ‘vagrant';
+	Postgres=# CREATE USER vagrant WITH PASSWORD 'vagrant';
 
 	Postgres=# CREATE DATABASE forum OWNER vagrant;
 
