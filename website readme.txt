@@ -121,3 +121,6 @@ STEP18. Open a new terminal and type the following commands.
 
 
 congrats your done with. you know have a fullstack website on a stick!!! go see your website at localhost:8000
+
+
+http://1bestcsharp.blogspot.com/2015/10/php-mysql-search-data-by-id-using-pdo.html
