@@ -1,12 +1,12 @@
 #
 # Database access functions for the web forum.
-# 
+#
 
 import psycopg2
 import time
-# bleach to keep out spammy script
+# bleach to keep out the script injection attack script
 # sanitize data - using Bleach http://bleach.readthedocs.io/en/latest/
-# import bleach
+#import bleach
 
 
 def GetAllPosts():
@@ -24,7 +24,7 @@ def GetAllPosts():
 def AddPost(content):
   DB = psycopg2.connect("dbname=forum")
   c = DB.cursor()
-# Clean content before inserting into the database  
+# Clean content before inserting into the database. This removes the script attack
 #  content = bleach.clean(content)
 
 # Insert into the database what we put in the webpage.
@@ -32,21 +32,19 @@ def AddPost(content):
 
   # (content,)) is a tuple parameter because of the comma the string is now just read as only text.
   # You must use %d for integer values and %s for string values.
+  # this prevents the sql injection attack.
 #  c.execute("INSERT INTO posts (content) VALUES (%s)", (content,))
 
-
   ################################################################################
-  #c.execute("UPDATE posts SET content = 'cheese' WHERE content LIKE '%spam%';")
-  #c.execute("DELETE FROM posts WHERE content LIKE 'cheese';")
+# this removes the spam
+#  c.execute("UPDATE posts SET content = 'cheese' WHERE content LIKE '%HACKED%';")
+#  c.execute("DELETE FROM posts WHERE content LIKE 'cheese';")
   DB.commit()
   DB.close()
 
 # 2. sql injection attack-bobby tables.
-# '); delete from posts; --  
+# '); delete from posts; --
 # The database will treat this as a database command
-
-
-
 
 # Copy and add this to the forum post. The webserver will think this is should be executed.
 # Script injection attack
@@ -57,4 +55,3 @@ setTimeout(function() {
     tt.form.submit();
 }, 2500);
 </script>'''
-
