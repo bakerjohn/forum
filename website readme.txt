@@ -1,4 +1,5 @@
 
+If you are using a Raspberry Pi skip to step 5
 
 
 Step 1. Download this software to your laptop
@@ -41,33 +42,34 @@ STEP 5. Go to the linux command line utility- you may have to search by typing i
 
 Command prompt: Ubuntu@Ubuntu:-$
 
-	Ubuntu@Ubuntu:-$ sudo  apt-get install postgresql python-psycopg2 
-	Ubuntu@Ubuntu:-$ sudo apt-get update 
+	$ sudo  apt-get install postgresql python-psycopg2 
+	$ sudo apt-get update 
 
-	Ubuntu@Ubuntu:-$ sudo apt-get install git  ( 5 minutes )
+	$ sudo apt-get install git  ( 5 minutes )
+	$ sudo pip install bleach - Bleach is used to prevent script injection attacks
 
 
 STEP 6. Make a directory for your files
 
-	Ubuntu@Ubuntu:-$ mkdir vagrant
-	Ubuntu@Ubuntu:-$ cd vagrant
+	$ mkdir vagrant
+	$ cd vagrant
 
 STEP 7. Clone the respository from github
-	Ubuntu@Ubuntu:-$ git clone https://github.com/bakerjohn/forum.git
+	$ git clone https://github.com/bakerjohn/forum.git
 
 
 STEP 8. Create a new user or use
-	Ubuntu@Ubuntu:-$ sudo adduser vagrant
+	$ sudo adduser vagrant
 
 	Create the password vagrant
 	-then just click enter through all the other stuff
 
 STEP 9. Switch to the new user.
-	Ubuntu@Ubuntu:-$ su – vagrant
+	$ su – vagrant
 
 STEP 10. Login to the database
 
-	Ubuntu@Ubuntu:-$ sudo –u postgres psql
+	$ sudo –u postgres psql
 
 #You will get the Postgres prompt- Postgres=# 
 
@@ -114,9 +116,9 @@ STEP 16. \d
 STEP 17. type exit to close the terminal.
 
 STEP18. Open a new terminal and type the following commands.
-	Ubuntu@Ubuntu:-$ cd vagrant
-	Ubuntu@Ubuntu:-$ cd forum
-	Ubuntu@Ubuntu:-$ python forum.py
+	$ cd vagrant
+	$ cd forum
+	$ python forum.py
 
 
 
