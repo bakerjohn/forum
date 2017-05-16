@@ -55,6 +55,7 @@ STEP 6. Make a directory for your files
 	$ cd vagrant
 
 STEP 7. Clone the respository from github
+	$ sudo apt-get install git
 	$ git clone https://github.com/bakerjohn/forum.git
 
 
